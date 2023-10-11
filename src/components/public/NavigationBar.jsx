@@ -3,7 +3,7 @@ import { React } from "react";
 export default function NavigationBar(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg  navbar-dark bg-dark">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -22,7 +22,7 @@ export default function NavigationBar(props) {
             </a>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="/home">
+                <a className="nav-link" href="/">
                   Home
                 </a>
               </li>
@@ -43,7 +43,7 @@ export default function NavigationBar(props) {
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="/singup">
+                <a className="nav-link" href="/signup">
                   Sign Up
                 </a>
               </li>

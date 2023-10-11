@@ -1,9 +1,10 @@
 import React from "react";
+import NavigationBar from "./NavigationBar";
 
 export default function About(props) {
   return (
     <>
-      <h1>About</h1>
+      <NavigationBar type="public" />
     </>
   );
 }

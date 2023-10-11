@@ -1,7 +1,9 @@
+import NavigationBar from "./NavigationBar";
+
 export default function SignUp() {
   return (
     <>
-      <h1> this is the signup page</h1>
+      <NavigationBar type="public" />
     </>
   );
 }

@@ -1,12 +1,13 @@
 import React from "react";
 
 import NavigationBar from "./NavigationBar";
+import HeroSection from "./HeroSection";
 
 export default function Home(props) {
   return (
     <>
-      <NavigationBar />
-      <h1>Home</h1>
+      <NavigationBar type="public" />
+      <HeroSection />
     </>
   );
 }
