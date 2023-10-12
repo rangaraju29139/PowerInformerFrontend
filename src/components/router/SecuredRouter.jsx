@@ -7,6 +7,7 @@ import SignUp from "../public/SignUp";
 import Profile from "../AuthNeeded/Profile";
 import Dashboard from "../AuthNeeded/Dashboard";
 import ViewFarms from "../AuthNeeded/ViewFarms";
+import AddFarm from "../AuthNeeded/farms/AddFarm";
 
 export default function SecuredRouter(props) {
   return (
@@ -21,6 +22,7 @@ export default function SecuredRouter(props) {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/view-farms" element={<ViewFarms />} />
+        <Route exact path="/add-farm" element={<AddFarm />} />
       </Routes>
     </>
   );

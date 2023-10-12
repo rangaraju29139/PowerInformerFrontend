@@ -32,16 +32,15 @@ export default function NavigationBar({ isSecured }) {
                     </a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a
+                    <div
                       class="nav-link dropdown-toggle"
-                      href="#"
                       id="navbarDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Farms
-                    </a>
+                    </div>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li>
                         <a class="dropdown-item" href="/add-farm">
@@ -53,23 +52,22 @@ export default function NavigationBar({ isSecured }) {
                         <hr class="dropdown-divider" />
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/view-farms">
                           View All Farms
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li class="nav-item dropdown">
-                    <a
+                    <div
                       class="nav-link dropdown-toggle"
-                      href="#"
                       id="navbarDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Devices
-                    </a>
+                    </div>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li>
                         <a class="dropdown-item" href="/addDevice">
@@ -89,16 +87,15 @@ export default function NavigationBar({ isSecured }) {
                   </li>
 
                   <li class="nav-item dropdown">
-                    <a
+                    <div
                       class="nav-link dropdown-toggle"
-                      href="#"
                       id="navbarDropdown"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
                       Account
-                    </a>
+                    </div>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li>
                         <a class="dropdown-item" href="/profile">
