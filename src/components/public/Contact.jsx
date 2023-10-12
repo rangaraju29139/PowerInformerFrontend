@@ -1,9 +1,10 @@
 import React from "react";
+import NavigationBar from "../navbar/NavigationBar";
 
 export default function Contact(props) {
   return (
     <>
-      <h1>Contact</h1>
+      <NavigationBar isSecured={false} />
     </>
   );
 }
