@@ -32,14 +32,16 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                 {devices.map((device) => (
                   <>
                     <div key={device.deviceId} className="col-md-4 my-3">
-                      <div
-                        className={`card border rounded shadow ${
-                          device.currentDeviceStatus == "AVAILABLE"
-                            ? "text-white bg-success"
-                            : "text-white bg-danger"
-                        }`}
-                      >
-                        <div className="card-header">{device.deviceName}</div>
+                      <div className="card border rounded shadow ">
+                        <div
+                          className={`card-header border rounded shadow ${
+                            device.currentDeviceStatus == "AVAILABLE"
+                              ? "text-white bg-success"
+                              : "text-white bg-danger"
+                          }`}
+                        >
+                          {device.deviceName}
+                        </div>
                         <div className="card-body">
                           {/** <h5 className="card-title">
                               Special title treatment
@@ -68,7 +70,7 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
               <>
                 <div className="container col-6 mx-auto my-auto px-auto,py-auto">
                   <div className="d-flex justify-content-center">
-                    <h4>No Farms Available for you</h4>
+                    <h4>No Devices Available for you</h4>
                   </div>
                   <div className="d-flex justify-content-center">
                     <a href="/add-Device" className="btn btn-success  ">
