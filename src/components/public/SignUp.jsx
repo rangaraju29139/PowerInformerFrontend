@@ -1,9 +1,9 @@
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../navbar/NavigationBar";
 
 export default function SignUp() {
   return (
     <>
-      <NavigationBar type="public" />
+      <NavigationBar isSecured={false} />
     </>
   );
 }

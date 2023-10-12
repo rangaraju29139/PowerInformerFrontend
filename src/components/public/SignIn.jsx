@@ -1,9 +1,9 @@
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../navbar/NavigationBar";
 
 export default function SingIn() {
   return (
     <>
-      <NavigationBar type="public" />
+      <NavigationBar isSecured={false} />
     </>
   );
 }
