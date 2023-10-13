@@ -79,8 +79,8 @@ export default function NavigationBar({ isSecured }) {
                         <hr class="dropdown-divider" />
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
-                          View Device
+                        <a class="dropdown-item" href="/view-devices">
+                          View All Device
                         </a>
                       </li>
                     </ul>

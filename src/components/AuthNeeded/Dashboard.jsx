@@ -4,6 +4,7 @@ import Footer from "../public/Footer";
 import axios from "axios";
 import DisplayAllFarms from "./DisplayAllFarms";
 import DisplayAllDevices from "./devices/DisplayAllDevices";
+import DeviceEventInfo from "./devices/DeviceEventInfo";
 
 export default function Dashboard(props) {
   const [farmerId, setFarmerId] = useState(null);
