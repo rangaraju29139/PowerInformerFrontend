@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 export default function FarmerDetails({ farmerId = 1 }) {
-  const [editable, setEditable] = useState("");
-
   return (
     <>
       <div className="container py-4">
