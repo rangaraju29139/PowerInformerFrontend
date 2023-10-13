@@ -37,13 +37,16 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
         <div className="container">
           <h2 className="text-center">View All Device Status</h2>
           <div className="row mx-auto py-5 border border-light shadow-lg rounded borderdmy-2 hidden-md-up">
-            <div className="ml-auto ">
-              Last Refressed At:{" "}
-              {moment(lastRefreshedAt).startOf("seconds").fromNow()}
+            <div className="d-flex justify-content-end ml-auto ">
+              <span class="badge bg-info text-dark py-2 mx-3 px-3">
+                Last Refreshed:{" "}
+                {moment(lastRefreshedAt).startOf("seconds").fromNow()}
+              </span>
             </div>
-            {devices && devices.length > 0 && (
-              <>
-                {devices.map((device) => (
+
+            <>
+              {devices &&
+                devices.map((device) => (
                   <>
                     <div key={device.deviceId} className="col-md-4 my-3">
                       <div className="card border rounded shadow ">
@@ -55,7 +58,7 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                           }`}
                         >
                           <span className="d-flex justify-content-center">
-                            {device.deviceName}
+                            {device.deviceName || <Skeleton></Skeleton>}
                           </span>
                         </div>
                         <div className="card-body">
@@ -88,8 +91,7 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                     </div>
                   </>
                 ))}
-              </>
-            )}
+            </>
 
             {devices && devices.length == 0 && (
               <>
