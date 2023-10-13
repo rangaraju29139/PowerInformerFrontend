@@ -1,6 +1,27 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function FarmerDetails({ farmerId = 1 }) {
+  const [farmerData, setFarmerData] = useState(null);
+  const baseUrl = `http://localhost:8080/farmers/${farmerId}`;
+  const [isEditable, setIsEditable] = useState(false);
+
+  useEffect(() => {
+    function fetchData() {
+      axios
+        .get(baseUrl)
+        .then((response) => {
+          setFarmerData(response.data);
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="container py-4">
@@ -11,14 +32,18 @@ export default function FarmerDetails({ farmerId = 1 }) {
             </div>
             <form className="">
               <div className="form-group">
-                <label for="farm-name">Farm Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="farm-name"
-                  placeholder="Please Enter the Farm Name"
-                  required
-                />
+                {Object.keys(farmerData).map((key) => (
+                  <>
+                    <label for={key}>{key.toLocaleUpperCase()}</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id={key}
+                      placeholder={`Please Enter ${key.toLocaleUpperCase()}`}
+                      required
+                    />
+                  </>
+                ))}
               </div>
 
               <div className="d-flex justify-content-center form-group">

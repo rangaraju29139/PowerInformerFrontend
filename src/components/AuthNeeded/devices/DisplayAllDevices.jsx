@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import FormatDate from "../../../utils/DateFormatter";
 import moment from "moment";
+import Loading from "../../common/Loading";
+import Skeleton from "react-loading-skeleton";
 
 export default function DisplayAllDevices({ farmerId = 1 }) {
   const [devices, setDevices] = useState(null);
@@ -39,7 +41,7 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
               Last Refressed At:{" "}
               {moment(lastRefreshedAt).startOf("seconds").fromNow()}
             </div>
-            {devices ? (
+            {devices && devices.length > 0 && (
               <>
                 {devices.map((device) => (
                   <>
@@ -71,11 +73,15 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                                 ? "Device Online Since : " +
                                   FormatDate(device.lastHeartBeatSignal)
                                 : "Device Offline Since : " +
-                                  FormatDate(device.lastHeartBeatSignal)}
+                                    FormatDate(device.lastHeartBeatSignal) || (
+                                    <Skeleton></Skeleton>
+                                  )}
                             </div>
                             <br></br>
                             Device Activated Status :{" "}
-                            {device.activated ? "Activated" : "Not Activated"}
+                            {device.activated
+                              ? "Activated"
+                              : "Not Activated" || <Skeleton></Skeleton>}
                           </p>
                         </div>
                       </div>
@@ -83,7 +89,9 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                   </>
                 ))}
               </>
-            ) : (
+            )}
+
+            {devices && devices.length == 0 && (
               <>
                 <div className="container col-6 mx-auto my-auto px-auto,py-auto">
                   <div className="d-flex justify-content-center">
@@ -97,6 +105,8 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                 </div>
               </>
             )}
+
+            {devices == null && <Loading></Loading>}
           </div>
         </div>
       </div>
