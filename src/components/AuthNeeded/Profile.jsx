@@ -12,7 +12,6 @@ export default function Profile({ farmerId = 1 }) {
           <div className="col py-0 px-0">
             <NavigationBar isSecured={true} />
             <FarmerDetails farmerId={farmerId}></FarmerDetails>
-
             <Footer></Footer>
           </div>
         </div>
