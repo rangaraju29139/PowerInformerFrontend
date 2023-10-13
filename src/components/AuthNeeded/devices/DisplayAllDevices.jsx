@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import EnableDisableDevice from "./EnableDisableDevice";
 
 export default function DisplayAllDevices({ farmerId = 1 }) {
   const [devices, setDevices] = useState(null);
@@ -34,13 +35,18 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                     <div key={device.deviceId} className="col-md-4 my-3">
                       <div className="card border rounded shadow ">
                         <div
-                          className={`card-header border rounded shadow ${
+                          className={`.d-inline-block card-header border rounded shadow ${
                             device.currentDeviceStatus == "AVAILABLE"
                               ? "text-white bg-success"
                               : "text-white bg-danger"
                           }`}
                         >
                           {device.deviceName}
+                          <span className="mr-0 inline">
+                            <EnableDisableDevice
+                              deviceInfo={device}
+                            ></EnableDisableDevice>
+                          </span>
                         </div>
                         <div className="card-body">
                           {/** <h5 className="card-title">
