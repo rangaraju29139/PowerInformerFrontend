@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import EnableDisableDevice from "./EnableDisableDevice";
 
 export default function DisplayAllDevices({ farmerId = 1 }) {
   const [devices, setDevices] = useState(null);
+  const [lastRefreshedAt, setLastRefreshedAt] = useState(new Date());
 
   const baseUrl = "http://localhost:8080/farmers/1/devices";
 
@@ -14,13 +15,17 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
         .then((response) => {
           console.log(response.data);
           setDevices(response.data);
+          setLastRefreshedAt(new Date());
         })
         .catch((error) => {
           console.log(error);
         });
     }
-    fetchData();
-  }, 5000);
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <>
@@ -36,7 +41,7 @@ export default function DisplayAllDevices({ farmerId = 1 }) {
                       <div className="card border rounded shadow ">
                         <div
                           className={`.d-inline-block card-header border rounded shadow ${
-                            device.currentDeviceStatus == "AVAILABLE"
+                            device.currentDeviceStatus === "AVAILABLE"
                               ? "text-white bg-success"
                               : "text-white bg-danger"
                           }`}

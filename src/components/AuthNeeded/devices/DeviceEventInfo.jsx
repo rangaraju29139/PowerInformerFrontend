@@ -4,26 +4,26 @@ import DeviceEventLog from "./DeviceEventLog";
 
 export default function DeviceEventInfo({ deviceId = 1 }) {
   const [deviceEvents, setDeviceEvents] = useState(null);
+  const baseUrl = `http://localhost:8080/devices/${deviceId}/device-events`;
 
-  useEffect(
-    () => {
-      async function fetchData() {
-        const response = await axios
-          .get("http://localhost:8080/devices/1/device-events")
-          .then((response) => {
-            console.log(response.data);
-            setDeviceEvents(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-        fetchData();
-        console.log(deviceEvents);
-      }
-    },
-    5000,
-    [deviceId]
-  );
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios
+        .get(baseUrl)
+        .then((response) => {
+          console.log(response.data);
+          setDeviceEvents(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <>

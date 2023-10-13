@@ -2,60 +2,33 @@ import { useEffect, useState } from "react";
 import FormatDate from "../../../utils/DateFormatter";
 
 export default function DeviceEventLog({ deviceEventList }) {
-  const [deviceEventExists, setDeviceEventsExists] = useState(
-    validateDeviceEventList(false)
-  );
-
-  const validateDeviceEventList = (deviceEventList) => {
-    if (deviceEventList == null || deviceEventList.length > 0) {
-      setDeviceEventsExists(true);
-      console.log("deviceEventList: " + deviceEventList);
-    } else {
-      setDeviceEventsExists(false);
-      console.log("deviceEventList: " + deviceEventList);
-    }
-  };
-  validateDeviceEventList(deviceEventList);
-
-  useEffect(
-    (deviceEventList) => {
-      validateDeviceEventList(deviceEventList);
-    },
-    [deviceEventList]
-  );
-
-  const handleTableRowColor = (deviceEvent) => {
-    if (deviceEvent.eventType === "OFF_TO_ON") {
-      return "table-success";
-    } else if (deviceEvent.eventType === "ON_TO_OFF") {
-      return "table-danger";
-    }
-  };
-
   return (
     <>
-      {deviceEventExists ? (
+      {deviceEventList && deviceEventList.length ? (
         <>
           <div>
             <table class="table table-hover">
               <thead>
-                <tr>
-                  <th scope="col">Event Time: </th>
-                  <th scope="col">Event Type</th>
+                <tr className="table-warning">
+                  <th scope="col">Event Time </th>
+                  <th scope="col">Event Type </th>
                 </tr>
               </thead>
               <tbody>
-                {deviceEventList.map((deviceEvent) => {
+                {[...deviceEventList].reverse().map((deviceEvent) => {
                   return (
                     <>
                       <tr
                         key={deviceEvent.id}
-                        className={handleTableRowColor(deviceEvent.eventType)}
+                        className={`${
+                          deviceEvent.eventType == "OFF_TO_ON"
+                            ? "table-success"
+                            : "table-danger"
+                        }`}
                       >
                         <td>{FormatDate(deviceEvent.eventTime)}</td>
                         <td>{deviceEvent.eventType}</td>
                       </tr>
-                      ;
                     </>
                   );
                 })}
@@ -65,7 +38,7 @@ export default function DeviceEventLog({ deviceEventList }) {
         </>
       ) : (
         <>
-          <div class="alert alert-primary" role="alert">
+          <div class="alert alert-warning" role="alert">
             No Device Event found for this device!!!
           </div>
         </>
