@@ -14,8 +14,6 @@ export default function Dashboard(props) {
       <NavigationBar isSecured={true}></NavigationBar>
       <DisplayAllDevices farmerId={farmerId}></DisplayAllDevices>
       <DisplayAllFarms farmerId={farmerId} />
-
-      <DeviceEventInfo deviceId={1}></DeviceEventInfo>
       <Footer />
     </>
   );

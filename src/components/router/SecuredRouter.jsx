@@ -8,6 +8,7 @@ import Profile from "../AuthNeeded/Profile";
 import Dashboard from "../AuthNeeded/Dashboard";
 import ViewFarms from "../AuthNeeded/ViewFarms";
 import AddFarm from "../AuthNeeded/farms/AddFarm";
+import ViewDevice from "../AuthNeeded/devices/ViewDevice";
 
 export default function SecuredRouter(props) {
   return (
@@ -23,6 +24,7 @@ export default function SecuredRouter(props) {
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/view-farms" element={<ViewFarms />} />
         <Route exact path="/add-farm" element={<AddFarm />} />
+        <Route exact path="/view-device" element={<ViewDevice />} />
       </Routes>
     </>
   );
