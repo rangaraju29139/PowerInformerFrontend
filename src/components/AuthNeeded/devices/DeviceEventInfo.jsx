@@ -4,6 +4,7 @@ import DeviceEventLog from "./DeviceEventLog";
 
 export default function DeviceEventInfo({ deviceId = 1 }) {
   const [deviceEvents, setDeviceEvents] = useState(null);
+  const [lastRefreshedAt, setLastRefreshedAt] = useState(new Date());
   const baseUrl = `http://localhost:8080/devices/${deviceId}/device-events`;
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export default function DeviceEventInfo({ deviceId = 1 }) {
         .then((response) => {
           console.log(response.data);
           setDeviceEvents(response.data);
+          setLastRefreshedAt(new Date());
         })
         .catch((error) => {
           console.log(error);
@@ -69,36 +71,10 @@ export default function DeviceEventInfo({ deviceId = 1 }) {
         </div>
         <hr className="hr-blurry"></hr>
 
-        <div class="container py-2 mx-auto, my-auto col-8">
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  <h5 className="mx-auto">Device Event Log </h5>
-                </button>
-              </h2>
-              <div
-                id="collapseOne"
-                class="accordion-collapse collapse "
-                aria-labelledby="headingOne"
-                data-bs-parent="#accordionExample"
-              >
-                <div class="accordion-body">
-                  <DeviceEventLog
-                    deviceEventList={deviceEvents}
-                  ></DeviceEventLog>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DeviceEventLog
+          deviceEventList={deviceEvents}
+          lastRefreshedAt={lastRefreshedAt}
+        ></DeviceEventLog>
       </div>
     </>
   );
