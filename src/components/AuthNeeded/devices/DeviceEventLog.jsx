@@ -7,7 +7,7 @@ export default function DeviceEventLog({ deviceEventList, lastRefreshedAt }) {
   return (
     <>
       {deviceEventList == null && <Loading></Loading>}
-      {deviceEventList && deviceEventList.length == 0 && (
+      {deviceEventList && deviceEventList.length === 0 && (
         <>
           <div class="alert alert-warning" role="alert">
             No Device Event found for this device!!!
@@ -15,7 +15,7 @@ export default function DeviceEventLog({ deviceEventList, lastRefreshedAt }) {
         </>
       )}
 
-      {deviceEventList && deviceEventList.length && (
+      {deviceEventList && deviceEventList.length > 0 && (
         <>
           <div className="d-flex justify-content-end ml-auto ">
             <span class="badge bg-info text-dark py-2 mb-2 mx-3 px-3">

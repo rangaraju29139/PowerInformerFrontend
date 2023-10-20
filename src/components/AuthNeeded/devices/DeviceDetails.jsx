@@ -29,7 +29,7 @@ export default function DeviceDetails({ deviceId = 1 }) {
     setIsEditable(true);
   };
 
-  async function saveData() {
+  async function saveData(baseUrl) {
     await axios
       .put(baseUrl, deviceData)
       .then((response) => {
@@ -44,7 +44,7 @@ export default function DeviceDetails({ deviceId = 1 }) {
   const handleSaveButton = (event) => {
     event.preventDefault();
     const baseUrl = `http://localhost:8080/devices/${deviceId}`;
-    saveData();
+    saveData(baseUrl);
     setIsEditable(false);
   };
   const handleFieldChange = (event) => {
@@ -62,7 +62,8 @@ export default function DeviceDetails({ deviceId = 1 }) {
               <h3 className="py-1">Device Details</h3>
             </div>
             {deviceData == null && <Loading></Loading>}
-            {deviceData && deviceData.length == 0 && (
+
+            {deviceData && deviceData.length === 0 && (
               <>
                 <div class="alert alert-warning" role="alert">
                   No Device Event found for this device!!!
