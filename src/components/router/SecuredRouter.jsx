@@ -9,6 +9,7 @@ import Dashboard from "../AuthNeeded/Dashboard";
 import ViewFarms from "../AuthNeeded/ViewFarms";
 import AddFarm from "../AuthNeeded/farms/AddFarm";
 import ViewDevice from "../AuthNeeded/devices/ViewDevice";
+import ManageDeviceConfiguration from "../AuthNeeded/devices/ManageDeviceConfiguration";
 
 export default function SecuredRouter(props) {
   return (
@@ -25,6 +26,11 @@ export default function SecuredRouter(props) {
         <Route exact path="/view-farms" element={<ViewFarms />} />
         <Route exact path="/add-farm" element={<AddFarm />} />
         <Route exact path="/view-device" element={<ViewDevice />} />
+        <Route
+          exact
+          path="/manage-device"
+          element={<ManageDeviceConfiguration />}
+        />
       </Routes>
     </>
   );

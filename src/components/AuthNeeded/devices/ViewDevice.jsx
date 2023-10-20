@@ -6,7 +6,7 @@ export default function ViewDevice({ deviceId = 1 }) {
   return (
     <>
       <NavigationBar isSecured={true} />
-      <DeviceEventInfo deviceId={1} />
+      <DeviceEventInfo deviceId={deviceId} />
 
       <Footer />
     </>
