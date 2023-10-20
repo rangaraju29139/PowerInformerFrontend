@@ -2,7 +2,7 @@ export default function HeroSection(props) {
   return (
     <>
       <div>
-        <div className="px-4 pt-5  text-center border-bottom">
+        <div className="px-4 pt-5 vh-100 text-center border-bottom">
           <h1 className="display-4 fw-bold">
             Empowering Farmers with Real-time Insights on Electricity Supply for
             Informed Decisions

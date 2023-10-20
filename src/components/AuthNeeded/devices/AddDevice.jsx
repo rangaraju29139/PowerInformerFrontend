@@ -5,7 +5,6 @@ import axios from "axios";
 
 export default function AddDevice(props) {
   const [deviceName, setDeviceName] = useState(null);
-  const [deviceLocation, setDeviceLocation] = useState(null);
 
   const updateName = (event) => {
     setDeviceName(event.target.value);
@@ -13,7 +12,7 @@ export default function AddDevice(props) {
   };
 
   const updateFarmLocation = (event) => {
-    setDeviceLocation(event.target.value);
+    // setDeviceLocation(event.target.value);
     // console.log(farmLocation);
   };
 
@@ -21,8 +20,7 @@ export default function AddDevice(props) {
     event.preventDefault();
 
     const body = {
-      farmName: farmName,
-      locationDescription: farmLocation,
+      farmName: deviceName,
     };
 
     axios
