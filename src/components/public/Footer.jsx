@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
     <>
-      <div className="container-fluid navbar-dark bg-dark sticky-bottom">
-        <footer className="py-2 mt-4">
+      <div className="container-fluid navbar-dark bg-dark fixed-bottom">
+        <footer className=" mt-2">
           {/**  <ul className="nav  justify-content-center border-bottom pb-3 mb-3">
             <li className="nav-item">
               <a href="/" className="nav-link px-2 text-light">
@@ -31,7 +31,7 @@ export default function Footer() {
             </li>
           </ul>
           */}
-          <p className="text-center text-light">
+          <p className="text-center text-light py-2">
             &copy; 2023 Power Informer by Manage Farming
           </p>
         </footer>
