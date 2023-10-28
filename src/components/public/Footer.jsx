@@ -1,27 +1,39 @@
 export default function Footer() {
   return (
     <>
-      <div className="container ">
-        <footer className=" py-3 my-4 ">
-          <ul className="nav justify-content-center border-bottom pb-3 mb-3 ">
+      <div className="container-fluid navbar-dark bg-dark sticky-bottom">
+        <footer className="py-2 mt-4">
+          {/**  <ul className="nav  justify-content-center border-bottom pb-3 mb-3">
             <li className="nav-item">
-              <a href="/home" className="nav-link px-2 text-muted">
+              <a href="/" className="nav-link px-2 text-light">
                 Home
               </a>
             </li>
-
             <li className="nav-item">
-              <a href="/contact" className="nav-link px-2 text-muted">
-                Contact
+              <a href="/" className="nav-link px-2 text-light">
+                Features
               </a>
             </li>
             <li className="nav-item">
-              <a href="/about" className="nav-link px-2 text-muted">
+              <a href="#" className="nav-link px-2 text-light">
+                Pricing
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
+                FAQs
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
                 About
               </a>
             </li>
           </ul>
-          <p className="text-center text-muted">&copy; 2021 Company, Inc</p>
+          */}
+          <p className="text-center text-light">
+            &copy; 2023 Power Informer by Manage Farming
+          </p>
         </footer>
       </div>
     </>

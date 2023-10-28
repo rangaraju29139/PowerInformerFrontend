@@ -10,7 +10,12 @@ export default function DisplayAllFarms({ farmerId = 1 }) {
   useEffect(() => {
     async function fetchData() {
       const response = await axios
-        .get(baseUrl)
+        .get(baseUrl, {
+          auth: {
+            username: "powerinformer",
+            password: "Password@Powerinformer",
+          },
+        })
         .then((response) => {
           console.log(response.data);
           setFarms(response.data);

@@ -6,11 +6,18 @@ export default function DeviceEventInfo({ deviceId = 1 }) {
   const [deviceEvents, setDeviceEvents] = useState(null);
   const [lastRefreshedAt, setLastRefreshedAt] = useState(new Date());
   const baseUrl = `http://localhost:8080/devices/${deviceId}/device-events`;
+  const API_USERNAME = `${process.env.REACT_APP_API_USERNAME}`;
+  const API_PASSWORD = `${process.env.REACT_APP_API_PASSWORD}`;
 
   useEffect(() => {
     async function fetchData() {
       const response = await axios
-        .get(baseUrl)
+        .get(baseUrl, {
+          auth: {
+            username: API_USERNAME,
+            password: API_PASSWORD,
+          },
+        })
         .then((response) => {
           console.log(response.data);
           setDeviceEvents(response.data);

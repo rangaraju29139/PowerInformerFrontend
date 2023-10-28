@@ -11,7 +11,12 @@ export default function DeviceDetails({ deviceId = 1 }) {
   useEffect(() => {
     function fetchData() {
       axios
-        .get(baseUrl)
+        .get(baseUrl, {
+          auth: {
+            username: "powerinformer",
+            password: "Password@Powerinformer",
+          },
+        })
         .then((response) => {
           setDeviceData(response.data);
           console.log(response.data);
@@ -31,7 +36,12 @@ export default function DeviceDetails({ deviceId = 1 }) {
 
   async function saveData(baseUrl) {
     await axios
-      .put(baseUrl, deviceData)
+      .put(baseUrl, deviceData, {
+        auth: {
+          username: "powerinformer",
+          password: "Password@Powerinformer",
+        },
+      })
       .then((response) => {
         setDeviceData(response.data);
         console.log(response.data);
