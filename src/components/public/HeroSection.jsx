@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundImg from "../../assets/images/home-background-2.jpg";
+import backgroundImg from "../../assets/images/home-background.jpg";
 
 const Body = styled.div`
   width: 100vw;
