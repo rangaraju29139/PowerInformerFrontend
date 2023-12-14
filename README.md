@@ -1,5 +1,12 @@
 # PowerInformer FrontEnd
 
+URL: https://powerinformer.managefarming.com
+
+Note: Backend not deployed remotely for now.
+
+Links:
+https://powerinformer.managefarming.com/dashboard
+
 ### ScreenShots
 
 #### Home Screen
