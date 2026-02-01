@@ -2,6 +2,7 @@
 
 URL: https://powerinformer.managefarming.com
 
+Backend Code: https://github.com/rangaraju29139/PowerInformerBackend
 Note: Backend not deployed remotely for now.
 
 Links:
